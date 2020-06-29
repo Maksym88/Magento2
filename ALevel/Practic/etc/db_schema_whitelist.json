@@ -1,0 +1,12 @@
+{
+  "alevel_practic": {
+    "column": {
+      "id": true,
+      "customer_name": true,
+      "email": true
+    },
+    "constraint": {
+      "PRIMARY": true
+    }
+  }
+}

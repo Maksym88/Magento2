@@ -1,0 +1,36 @@
+<?php
+/** @var ALevel\BlockLayoutController\Block\Information $block */
+?>
+
+<?=  $block->getInformationFromBlock(); ?>
+
+<br />
+<?= $block->getChildHtml('child-a'); ?>
+<br />
+------------------------------------------
+<br />
+<?= $block->getChildHtml('child-b'); ?>
+
+
+<?php /** @var ALevel\BlockLayoutController\ViewModel\Additional $viewModel */ ?>
+<?php $viewModel = $block->getData('viewModel');?>
+
+<br />
+Block Id: <?php echo $block->getData('alevel_id');?>
+<br />
+<?= $viewModel->getDataForBlockViewModel(); ?>
+
+
+<div data-bind="scope: 'component-alevel'">
+    <!-- ko template: getTemplate() --><!-- /ko -->
+</div>
+
+<script type="text/x-magento-init">
+{
+    "*": {
+        "Magento_Ui/js/core/app": <?= /* @noEscape */ $block->getJsLayout() ?>
+    }
+}
+</script>
+
+

@@ -1,0 +1,33 @@
+<?php
+/** @var \ALevel\User\Block\Users $block  */
+?>
+<?php
+  $users = $block->getJsonConfig();
+?>
+
+
+<h1><?= __('User'); ?></h1>
+<div class="ui-test" data-bind="scope: 'alevel-component'">
+    <div data-bind="foreach: getUsers(); ">
+        <h2 data-bind="text: name"></h2>
+        <h2 data-bind="text: age"></h2>
+    </div>
+</div>
+
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                    "alevel-component": {
+                        "component": "ALevel_User/js/user",
+                        "user": "Vasya",
+                        "age": 355,
+                        "users": <?= $users ?>
+                    }
+                }
+            }
+        }
+    }
+</script>
+

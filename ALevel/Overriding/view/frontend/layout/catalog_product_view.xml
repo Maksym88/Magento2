@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock class="ALevel\Overriding\Block\Product\View" name="product.info.addtocart">
+            <action method="setTemplate">
+                <argument name="template" xsi:type="string">ALevel_Event::product/view/addtocart.phtml</argument>
+            </action>
+        </referenceBlock>
+
+        <referenceBlock name="product.info.sku">
+            <action method="setTemplate">
+                <argument name="template" xsi:type="string">ALevel_Overriding::product/view/attribute.phtml</argument>
+            </action>
+            <arguments>
+                <argument name="viewModel" xsi:type="object">ALevel\Overriding\ViewModel\Additional</argument>
+                <argument name="jsLayout" xsi:type="array">
+                    <item name="components" xsi:type="array">
+                        <item name="component-alevel-content" xsi:type="array">
+                            <item name="component"
+                                  xsi:type="string">ALevel_Overriding/js/components/content</item>
+                            <item name="config" xsi:type="array">
+                                <item name="template" xsi:type="string">ALevel_Overriding/content</item>
+                            </item>
+                            <item name="url" xsi:type="string">javascript/message/add</item>
+                        </item>
+                    </item>
+                </argument>
+            </arguments>
+        </referenceBlock>
+
+        <referenceBlock class="ALevel\Overriding\Block\Product\View" name="product.info.addtocart.additional">
+            <action method="setTemplate">
+                <argument name="template" xsi:type="string">ALevel_Event::product/view/addtocart.phtml</argument>
+            </action>
+        </referenceBlock>
+    </body>
+</page>

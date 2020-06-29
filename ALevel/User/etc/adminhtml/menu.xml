@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Pavel Usachev <webcodekeeper@hotmail.com>
+ * @copyright Copyright (c) 2017, Pavel Usachev
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add
+            id="ALevel_User::all"
+            title="Alevel Users"
+            translate="title"
+            module="ALevel_User"
+            sortOrder="20"
+            dependsOnModule="ALevel_User"
+            resource="Sysint_MagentoAcademy::all"
+        />
+        <add
+            id="ALevel_User::grid"
+            title="Users Grid"
+            translate="title"
+            module="ALevel_User"
+            sortOrder="10"
+            parent="ALevel_User::all"
+            action="alevel_user/user/listing"
+            resource="ALevel_User::grid"
+        />
+    </menu>
+</config>

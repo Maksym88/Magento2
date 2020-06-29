@@ -1,0 +1,13 @@
+{
+    "alevel_message": {
+        "column": {
+            "id": true,
+            "message": true,
+            "updated_at": true,
+            "name": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

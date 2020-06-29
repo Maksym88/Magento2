@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <container name="level-container" htmlTag="div" htmlClass="alevel-container-class">
+
+
+            <block class="ALevel\BlockLayoutController\Block\Widget" name="widget"
+                   template="ALevel_BlockLayoutController::data/widget.phtml"/>
+
+            <block class="ALevel\BlockLayoutController\Block\Information"
+                   name="information"
+                   template="ALevel_BlockLayoutController::data/information.phtml">
+                <arguments>
+                    <argument name="viewModel" xsi:type="object">ALevel\BlockLayoutController\ViewModel\Additional</argument>
+                    <argument name="alevel_id" xsi:type="number">12345</argument>
+                    <argument name="jsLayout" xsi:type="array">
+                        <item name="components" xsi:type="array">
+                            <item name="component-alevel" xsi:type="array">
+                                <item name="component" xsi:type="string">ALevel_BlockLayoutController/js/components/alevel-component</item>
+                                <item name="config" xsi:type="array">
+                                    <item name="template" xsi:type="string">ALevel_BlockLayoutController/alevel-template</item>
+                                </item>
+                            </item>
+                            <item name="name" xsi:type="string">Jenya</item>
+                        </item>
+                    </argument>
+                </arguments>
+                <block class="Magento\Framework\View\Element\Template"
+                       name="child-a" as="child-a"
+                       template="ALevel_BlockLayoutController::data/children/child-a.phtml"/>
+                <block class="Magento\Framework\View\Element\Template"
+                       name="child-b" as="child-b"
+                       template="ALevel_BlockLayoutController::data/children/child-b.phtml" />
+
+
+            </block>
+            </container>
+
+        </referenceContainer>
+
+<!--        <referenceBlock name="child-c" remove="true"/>
+        <move element="child-c" destination="child-b"/>-->
+    </body>
+</page>

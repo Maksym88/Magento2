@@ -1,0 +1,29 @@
+<label class="name" for="name">
+    Your Name
+</label>
+<input id="name"
+       class="name"
+       type="text">
+<label class="message" for="message">
+    Please Enter Message
+</label>
+<textarea id="message"
+       class="message"
+      rows="5" cols="10"
+      type="text"></textarea>
+<button class="send-message"
+        type="button"
+        data-bind="click: sendMessage()">
+    <span>Send Message</span>
+</button>
+
+<script type="text/x-magento-template" id="messages-list-template">
+    <ul class="prices-tier items">
+        <% _.each(messages, function(item, key) { %>
+        <li class="item">
+            <span><%= item.name %> : - <%= item.message %></span>
+        </li>
+        <% }); %>
+    </ul>
+</script>
+<div data-role="messages-list"></div>

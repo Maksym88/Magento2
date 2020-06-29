@@ -1,0 +1,27 @@
+<?php
+/** @var ALevel\MyBlock\Block\Information $block */
+?>
+
+<?php echo $block->getInformationFromBlock(); ?>
+
+<?php echo $block->getChildHtml('child-a'); ?>
+
+<?php echo $block->getChildHtml('child-b'); ?>
+<?php
+/** @var ALevel\MyBlock\ViewModel\Additional $viewModel */
+?>
+<?php $viewModel = $block->getData('viewModel');?>
+<br />
+
+Block id: <?php echo $block->getData('alevel-id'); ?>
+<br />
+
+<?= $viewModel->getDataForBlockViewModel();?>
+
+<script type="text/x-magento-init">
+{
+    "*": {
+        "Magento_Ui/js/core/app": <?= /* @noEscape */ $block->getJsLayout() ?>
+    }
+}
+</script>

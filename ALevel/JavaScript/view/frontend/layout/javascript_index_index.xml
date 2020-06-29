@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <container name="level-container" htmlTag="div" htmlClass="alevel-container-class">
+
+            <block class="ALevel\JavaScript\Block\Component"
+                   name="component"
+                   template="ALevel_JavaScript::data/message.phtml">
+                <arguments>
+                    <argument name="jsLayout" xsi:type="array">
+                        <item name="components" xsi:type="array">
+                            <item name="component-alevel" xsi:type="array">
+                                <item name="component" xsi:type="string">ALevel_JavaScript/js/components/message</item>
+                                <item name="config" xsi:type="array">
+                                    <item name="template" xsi:type="string">ALevel_JavaScript/message</item>
+                                </item>
+                                <item name="url" xsi:type="string">javascript/message/add</item>
+                            </item>
+                        </item>
+                    </argument>
+                </arguments>
+            </block>
+            <block name="widget" template="ALevel_JavaScript::widget/widget.phtml"/>
+            </container>
+        </referenceContainer>
+    </body>
+</page>

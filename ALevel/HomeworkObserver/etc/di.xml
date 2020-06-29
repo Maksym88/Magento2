@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <preference for="ALevel\HomeworkObserver\Api\Data\TestInterface"
+                type="ALevel\HomeworkObserver\Model\Test"/>
+
+    <preference for="ALevel\HomeworkObserver\Api\CustomerRepositoryInterface"
+                type="ALevel\HomeworkObserver\Model\CustomerRepository"/>
+    <virtualType name="ALevel\HomeworkObserver\ResourceModel\Test\GridCollection"
+                 type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">alevel_homework</argument>
+            <argument name="resourceModel"
+                      xsi:type="string">ALevel\HomeworkObserver\Model\ResourceModel\Test</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Framework\Console\CommandList">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="alevel_custom_command" xsi:type="object">ALevel\HomeworkObserver\Console\CustomerCommand</item>
+            </argument>
+        </arguments>
+    </type>
+
+
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="alevel_homework_listing_data_source"
+                      xsi:type="string">ALevel\HomeworkObserver\ResourceModel\Test\GridCollection</item>
+            </argument>
+        </arguments>
+    </type>
+
+
+</config>

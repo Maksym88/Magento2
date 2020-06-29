@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <preference for="ALevel\Event\Api\Data\CustomerInterface"
+                type="ALevel\Event\Model\Customer"/>
+
+    <preference for="ALevel\Event\Api\CustomerRepositoryInterface"
+                type="ALevel\Event\Model\CustomerRepository"/>
+
+    <virtualType name="ALevel\Event\Model\ResourceModel\Customer\GridCollection"
+                 type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">alevel_event</argument>
+            <argument name="resourceModel"
+                      xsi:type="string">ALevel\Event\Model\ResourceModel\Customer</argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="alevel_event_listing_data_source"
+                      xsi:type="string">ALevel\Event\Model\ResourceModel\Customer\GridCollection
+
+                </item>
+            </argument>
+        </arguments>
+    </type>
+
+</config>

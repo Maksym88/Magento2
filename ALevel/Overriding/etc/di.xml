@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <virtualType name="original\original">
+        <arguments>
+            <argument name="test" xsi:type="array">
+                <item name="test" xsi:type="string">test</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Magento\Framework\Console\CommandList">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="alevel_custom_command" xsi:type="object">ALevel\Overriding\Console\CustomCommand</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="ALevel\JavaScript\Controller\Message\Add">
+        <arguments>
+            <argument name="messageService"
+                      xsi:type="object">ALevel\JavaScript\Model\MessageServiceOverride</argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Checkout\Block\Onepage">
+        <plugin name="ALevel\Overriding\Plugin\Block\OnepagePlugin"
+                type="ALevel\Overriding\Plugin\Block\OnepagePlugin"/>
+    </type>
+
+
+    <type name="ALevel\JavaScript\Block\Component">
+        <plugin name="ALevel\JavaScript\Block\Component"
+                type="ALevel\Overriding\Plugin\Block\ComponentPlugin"/>
+    </type>
+
+
+    <type name="ALevel\JavaScript\Controller\Message\Add">
+        <plugin name="ALevel\Overriding\Plugin\Controller\Message\AddPlugin"
+                type="ALevel\Overriding\Plugin\Controller\Message\AddPlugin"/>
+    </type>
+
+<!--    <type name="ALevel\Overriding\Logger\Handler">-->
+<!--        <arguments>-->
+<!--            <argument name="filesystem" xsi:type="object">Magento\Framework\Filesystem\Driver\File</argument>-->
+<!--        </arguments>-->
+<!--    </type>-->
+<!--    <type name="ALevel\Overriding\Logger\Logger">-->
+<!--        <arguments>-->
+<!--            <argument name="name" xsi:type="string">myLoggerName</argument>-->
+<!--            <argument name="handlers"  xsi:type="array">-->
+<!--                <item name="system" xsi:type="object">ALevel\Overriding\Logger\Handler</item>-->
+<!--            </argument>-->
+<!--        </arguments>-->
+<!--    </type>-->
+</config>

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="ALevel_BlockLayoutController::menu" title="Alevel Menu" module="ALevel_BlockLayoutController" sortOrder="999"
+             resource="ALevel_BlockLayoutController::menu"/>
+
+        <add id="ALevel_BlockLayoutController::child1" title="Config Page" module="ALevel_BlockLayoutController" sortOrder="10"
+             action="coupon/grid/index" resource="ALevel_BlockLayoutController::child1" parent="ALevel_BlockLayoutController::menu"/>
+
+
+        <add id="ALevel_BlockLayoutController::configuration" title="Configuration" module="ALevel_BlockLayoutController" sortOrder="99"
+             parent="ALevel_BlockLayoutController::menu" action="adminhtml/system_config/edit/section/general"
+             resource="ALevel_BlockLayoutController::configuration"/>
+
+        <add id="ALevel_BlockLayoutController::child_configuration" title="Configuration Child" module="ALevel_BlockLayoutController" sortOrder="99"
+             parent="ALevel_BlockLayoutController::configuration" action="adminhtml/system_config/edit/section/alevel"
+             resource="ALevel_BlockLayoutController::child_configuration"/>
+    </menu>
+</config>
+
+
